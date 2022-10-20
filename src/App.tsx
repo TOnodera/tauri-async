@@ -23,7 +23,7 @@ function App() {
         message: output,
       } as unknown as Message,
     ]);
-    // invoke("js2rs", { message: output });
+    invoke("js2rs", { message: output });
   };
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
