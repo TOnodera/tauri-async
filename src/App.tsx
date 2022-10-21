@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
@@ -26,6 +26,12 @@ function App() {
     invoke("js2rs", { message: output });
   };
 
+  const clear = () => {
+    setOutput("");
+    setOutputs([]);
+    setInputs([]);
+  };
+
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOutput(e.target.value);
     console.log(e.target.value);
@@ -41,7 +47,10 @@ function App() {
     });
   };
 
-  listener();
+  useEffect(() => {
+    listener();
+  }, []);
+
   return (
     <div className="container">
       <div>
@@ -52,6 +61,13 @@ function App() {
           onClick={sendOutput}
         >
           送信
+        </button>
+        <button
+          type="button"
+          style={{ backgroundColor: "#c9f9c9", marginLeft: "10px" }}
+          onClick={clear}
+        >
+          Clear
         </button>
       </div>
       <div className="data-lists">
