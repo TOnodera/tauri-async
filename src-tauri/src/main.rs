@@ -32,11 +32,9 @@ async fn async_process_model(
     mut input_rx: mpsc::Receiver<String>,
     output_tx: mpsc::Sender<String>,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    loop {
-        while let Some(input) = input_rx.recv().await {
-            let output = input;
-            output_tx.send(output).await?;
-        }
+    while let Some(input) = input_rx.recv().await {
+        let output = input;
+        output_tx.send(output).await?;
     }
 
     Ok(())

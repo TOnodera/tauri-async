@@ -58,9 +58,9 @@ function App() {
         <div>
           <h3>javascript to rust</h3>
           <ul>
-            {outputs.map((output) => {
+            {outputs.map((output, idx) => {
               return (
-                <li>
+                <li key={idx}>
                   time: {output.timestamp} message: {output.message}
                 </li>
               );
@@ -70,9 +70,9 @@ function App() {
         <div>
           <h3>rust to javascript</h3>
           <ul>
-            {inputs.map((input) => {
+            {inputs.map((input, idx) => {
               return (
-                <li>
+                <li key={idx}>
                   time: {input.timestamp} message: {input.message}
                 </li>
               );
