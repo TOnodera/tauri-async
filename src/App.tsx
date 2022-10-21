@@ -57,7 +57,7 @@ function App() {
         <input type="text" onChange={onChangeInput} />
         <button
           type="button"
-          style={{ backgroundColor: "#c9f9c9" }}
+          style={{ backgroundColor: "#c9f9c9", marginLeft: "10px" }}
           onClick={sendOutput}
         >
           送信
@@ -67,12 +67,12 @@ function App() {
           style={{ backgroundColor: "#c9f9c9", marginLeft: "10px" }}
           onClick={clear}
         >
-          Clear
+          クリア
         </button>
       </div>
       <div className="data-lists">
         <div>
-          <h3>javascript to rust</h3>
+          <h3>javascript =&gt; rust</h3>
           <ul>
             {outputs.map((output, idx) => {
               return (
@@ -84,7 +84,7 @@ function App() {
           </ul>
         </div>
         <div>
-          <h3>rust to javascript</h3>
+          <h3>rust =&gt; javascript</h3>
           <ul>
             {inputs.map((input, idx) => {
               return (
